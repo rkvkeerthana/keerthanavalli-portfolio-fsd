@@ -92,7 +92,7 @@ export default function Hero({ setIsAtsView, setActiveSection }: HeroProps) {
     <div
       id="hero"
       ref={containerRef}
-      className="relative w-full bg-bg-1 pt-28 pb-16 md:pt-36 md:pb-20 lg:min-h-screen lg:flex lg:items-center lg:justify-center lg:py-0 overflow-hidden transition-colors duration-300"
+      className="relative w-full bg-bg-1 pt-28 pb-16 md:pt-36 md:pb-20 lg:min-h-screen lg:flex lg:items-center lg:justify-center lg:pt-36 lg:pb-24 overflow-hidden transition-colors duration-300"
     >
       {/* Parallax Background Grid / Dots */}
       <motion.div

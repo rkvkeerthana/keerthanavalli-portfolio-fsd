@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --animate-spin-slow: spin-slow 15s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float-delayed 6s ease-in-out infinite;
+
+  --color-bg-1: var(--bg-1);
+  --color-bg-2: var(--bg-2);
+  --color-bg-3: var(--bg-3);
+  --color-bg-card: var(--bg-card);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border-main: var(--border-main);
+}
+
+:root {
+  /* Default dark mode values */
+  --bg-1: #070d19;
+  --bg-2: #091122;
+  --bg-3: #050912;
+  --bg-card: rgba(15, 23, 42, 0.4);
+  --text-primary: #f1f5f9; /* text-slate-100 */
+  --text-secondary: #94a3b8; /* text-slate-400 */
+  --border-main: rgba(30, 41, 59, 0.6); /* border-slate-800/60 */
+  --header-gradient-from: #f8fafc;
+  --header-gradient-to: #cbd5e1;
+}
+
+html.light {
+  /* Light mode values */
+  --bg-1: #ffffff;
+  --bg-2: #f8fafc; /* slate-50 */
+  --bg-3: #f1f5f9; /* slate-100 */
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --text-primary: #0f172a; /* text-slate-900 */
+  --text-secondary: #475569; /* text-slate-600 */
+  --border-main: rgba(226, 232, 240, 0.8); /* border-slate-200/80 */
+  --header-gradient-from: #0f172a;
+  --header-gradient-to: #475569;
+}
+
+/* Custom 3D & Animation CSS Utilities */
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+  .translate-z-\[80px\] {
+    transform: translateZ(80px);
+  }
+}
+
+/* Custom Animation Keyframes */
+@keyframes spin-slow {
+  0% {
+    transform: rotateX(10deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(10deg) rotateY(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(12px) rotate(-3deg);
+  }
+}
+
+/* Global Styles & Overrides */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Print Utilities */
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+}
